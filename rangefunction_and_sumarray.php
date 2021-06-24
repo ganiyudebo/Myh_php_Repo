@@ -11,7 +11,7 @@
     */
 
 
-    // create a range of number using our defRange function. 
+    // create a range of numbers using our defRange function. 
     // Scroll down the page for the function block.
 
     $myRangeNum = defRange(2,56) ;
@@ -29,7 +29,7 @@
      */
 
     // use the function sumArray to add all numbers in the array above.
-    
+
      echo "<br> The sum of your array is ", sumArray($myRangeNum) ;
 
 
