@@ -1,1 +1,9 @@
-// Code has been partitioned into seven files. 
+// The Sign in and Login Code requires seven (7) .php files.
+// They are:
+// (1) landingpage.php
+// (2) form.php
+// (3) dashboard.php
+// (4) login.php
+// (5) header.php => inside folder "Template"
+// (6) dashboardheader.php => inside folder "Template"
+// (7) footer.php => inside folder "Template"
