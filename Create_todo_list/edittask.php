@@ -5,19 +5,14 @@
      echo "unable to onnected" . mysqli_connect_error();
  }
 
- if(isset($_GET['id'])){
-     $id = mysqli_real_escape_string($conn, $_GET['id']);
+ if(isset($_POST['update'])){
+     $id = mysqli_real_escape_string($conn, $_POST['id_to_update']);
      
      $sql = "SELECT * FROM Tasks WHERE id=$id";
      
      $result = mysqli_query($conn, $sql);
 
      $singletask = mysqli_fetch_assoc($result);
-
-
-
-
-
  }
 
     $todo = $singletask['task'];
@@ -60,13 +55,6 @@
 
     if(!array_filter($errors)){
         
-        
-        // $_SESSION["name"] = $name;
-        // $_SESSION["email"] = $email;
-        // $_SESSION["password"] = $password;
-        // if (isset($_SESSION["email"])){
-        // print_r($_SESSION);
-        // }
             
             $todo = mysqli_real_escape_string($conn, $todo);
             $time = mysqli_real_escape_string($conn, $time);
