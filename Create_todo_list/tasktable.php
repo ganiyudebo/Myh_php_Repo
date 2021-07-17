@@ -61,7 +61,7 @@
         <td><h7><?php echo htmlspecialchars($data['finish_task_by']);?></h7></td>
         <td><form width="3px" action="edittask.php" validate method="post">
         <input type="hidden" name="id_to_update" value="<?php echo $data['id'] ;?>" >
-        <button type="submit" title='edit task' name="update"><i class="fas fa-trash"></i></button>
+        <button type="submit" title='edit task' name="update"><i class="fas fa-pen"></i></button>
         </form></td>
         <!-- <td><a href="deletetask.php?id=<?php echo htmlspecialchars($data['id']); ?>" color:red><h7><i title="delete" class="fas fa-trash"></i></h7></td> -->
         <td><form width="3px" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" validate method="post">
