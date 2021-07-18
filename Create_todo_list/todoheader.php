@@ -25,6 +25,9 @@
             padding: 20px;
             
         }
+        th{
+            background-color: rgba(0,0,0,0.14);
+        }
 
         .tasktable{
             max-width: 750px;
