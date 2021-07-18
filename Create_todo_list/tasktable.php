@@ -28,7 +28,7 @@
     $data_array = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     // free result from memory
-    // mysqli_free_result($result);
+    mysqli_free_result($result);
 
     // close connection
     mysqli_close($conn);
@@ -44,8 +44,8 @@
 
 <h4 class="center"> Todo Tasks</h4>
 
-<?php if(mysqli_num_rows($result) == 0 ){
-    echo "<div class='center'>You have no task yet but you can add new tasks!</div>";
+<?php if( empty($data_array) ){
+    echo "<div class='center'>You have no task yet but you can add new tasks now!</div>";
 } else {
 
 echo ("<div class='container'>"
