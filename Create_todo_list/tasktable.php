@@ -50,7 +50,7 @@
 ?>
 <div class="container tasktable">
   <table>
-  <th class="taskwidth">Action to take</th>    <th>Start at</th> <th>Complete by</th> <th colspan="2">Modify task</th>
+  <th class="taskwidth ">Action to take</th>    <th>Start at</th> <th>Complete by</th> <th>Modify task</th> <th>Delete task</th>
     
     <?php foreach($data_array as $data): ?>
     <tr>
