@@ -28,7 +28,7 @@
     $data_array = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     // free result from memory
-    mysqli_free_result($result);
+    // mysqli_free_result($result);
 
     // close connection
     mysqli_close($conn);
@@ -44,38 +44,35 @@
 
 <h4 class="center"> Todo Tasks!</h4>
 
-<?php if(empty($data_array)){
-    echo "<div class='center'>You have no task today</div>";
+<?php if(mysqli_num_rows($result) == 0 ){
+    echo "<div class='center'>You have no task yet but you can add new tasks.</div>";
+} else {
+
+echo ("<div class='container'>"
+  ."<table>"
+  ."<th class='taskwidth '>Action to take</th>    <th>Start at</th> <th>Complete by</th> <th>Modify task</th> <th>Delete task</th>");
+    
+    foreach($data_array as $data):
+    echo("<tr>"
+        ."<td><h7>" . htmlspecialchars($data['task']) . "</h7></td>"
+        ."<td><h7>" . htmlspecialchars($data['start_task_at']). "</h7></td>"
+        ."<td><h7>" . htmlspecialchars($data['finish_task_by']) ."</h7></td>"
+        ."<td><form action='edittask.php' validate method='post'>"
+        ."<input type='hidden' name='id_to_update' value='". $data['id']. "'>"
+        ."<button type='submit' title='edit' name='update'><i class='fas fa-pen'></i></button>"
+        ."</form></td>"
+        ."<td><form action='". htmlspecialchars($_SERVER['PHP_SELF']). "' validate method='post'>"
+        ."<input type='hidden' name='id_to_delete' value='". $data['id']."'>"
+        ."<button type='submit' title='delete' name='delete'><i class='fas fa-trash'></i></button>"
+        ."</form></td>"
+    ."</tr>");
+
+    endforeach;
+
+  echo("</table>"
+."</div>");
 }
 ?>
-<div class="container tasktable">
-  <table>
-  <th class="taskwidth ">Action to take</th>    <th>Start at</th> <th>Complete by</th> <th>Modify task</th> <th>Delete task</th>
-    
-    <?php foreach($data_array as $data): ?>
-    <tr>
-        <td>
-          <h7><?php echo htmlspecialchars($data['task']);?> </h7>
-        </td>
-        <td><h7><?php echo htmlspecialchars($data['start_task_at']);?></h7></td>
-        <td><h7><?php echo htmlspecialchars($data['finish_task_by']);?></h7></td>
-        <td><form width="3px" action="edittask.php" validate method="post">
-        <input type="hidden" name="id_to_update" value="<?php echo $data['id'] ;?>" >
-        <button type="submit" title='edit task' name="update"><i class="fas fa-pen"></i></button>
-        </form></td>
-        <!-- <td><a href="deletetask.php?id=<?php echo htmlspecialchars($data['id']); ?>" color:red><h7><i title="delete" class="fas fa-trash"></i></h7></td> -->
-        <td><form width="3px" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" validate method="post">
-        <input type="hidden" name="id_to_delete" value="<?php echo $data['id'] ;?>" >
-        <button type="submit" title='delete task' name="delete"><i class="fas fa-trash"></i></button>
-        </form></td>
-        <!-- <td><i style="font-size:16px" class="fa">&#xf014;</i></td> -->
-
-    </tr>
-
-    <?php endforeach; ?>
-
-  </table>
-</div>
 
 
 <footer class="section">
