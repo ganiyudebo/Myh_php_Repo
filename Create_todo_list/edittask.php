@@ -26,8 +26,8 @@
         // check name
         if(!empty($_POST["todo"])){
             $todo = clean_data($_POST["todo"]);
-            if(!preg_match("/^([a-zA-Z-\s]+)(,\s*[a-zA-Z\s]*)*$/", $todo)){
-                $errors["todo"] = "Can only be comma separated text";
+            if(!preg_match("/^([0-9a-zA-Z-\s]+)(,\s*[a-zA-Z\s]*)*$/", $todo)){
+                $errors["todo"] = "Can only be alphanumeric, comma-separated text";
             } else {
                 // echo htmlspecialchars($todo);
             }
