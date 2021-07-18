@@ -18,7 +18,7 @@
         }
     }
 
-    // write query for all table pizzas
+    // write query for all data in table
     $sql = "SELECT * FROM Tasks ORDER BY start_task_at";
 
     // make query and get result
@@ -33,7 +33,7 @@
     // close connection
     mysqli_close($conn);
 
-    // print_r(explode(',',$data_array[0]['ingredients']));
+    // print_r(explode(',',$data_array[0]['field_name']));
     // print_r($data);
 
 
