@@ -42,10 +42,10 @@
 
 <?php include("todoheader.php") ?>;
 
-<h4 class="center"> Todo Tasks!</h4>
+<h4 class="center"> Todo Tasks</h4>
 
 <?php if(mysqli_num_rows($result) == 0 ){
-    echo "<div class='center'>You have no task yet but you can add new tasks.</div>";
+    echo "<div class='center'>You have no task yet but you can add new tasks!</div>";
 } else {
 
 echo ("<div class='container'>"
